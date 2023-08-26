@@ -23,8 +23,12 @@ void pull_command(stack_t **head, unsigned int line_number)
 	{
 		;
 	}
+	if (ret != 2)
+	{
+		return;
+	}
 	y = atoi(tokens[1]);
-	if ((y == 0 && (_strcmp(tokens[1], "0")) != 0) || ret != 2)
+	if ((y == 0 && (_strcmp(tokens[1], "0")) != 0))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
