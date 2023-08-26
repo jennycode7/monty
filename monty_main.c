@@ -18,14 +18,14 @@ int main(int ac, char **argv)
 
 	if (ac != 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
-		printf("Error: Can't open file %s\n", argv[1]);
+		fprintf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
