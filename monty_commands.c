@@ -9,7 +9,6 @@ void pull_command(stack_t **head, unsigned int line_number)
 {
 	stack_t *stack;
 	char **tokens;
-	int ret;
 	int y;
 
 	stack = malloc(sizeof(stack_t));
@@ -19,18 +18,11 @@ void pull_command(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	tokens = tokenize_string(_strdup(for_instructions[line_number]));
-	for (ret = 0; tokens[ret]; ret++)
-	{
-		;
-	}
-	if (ret != 2)
-	{
-		return;
-	}
+	token_check(tokens, line_number);
 	y = atoi(tokens[1]);
 	if ((y == 0 && (_strcmp(tokens[1], "0")) != 0))
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number + 1);
 		exit(EXIT_FAILURE);
 	}
 	stack->n = y;
