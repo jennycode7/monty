@@ -17,20 +17,21 @@ int execute_stack(char **instructions, int count, stack_t **head)
 	instruction_t commands[] = {
 		{"push", pull_command},
 		{"pall", pall_command},
+		{"pint", pint_command},
 		{NULL, NULL},
 	};
 	for (x = 0; x < count; x++)
 	{
 		str = _strdup(instructions[x]);
 		tokens = tokenize_string(str);
-		for (y = 0; y < 2; y++)
+		for (y = 0; y < 3; y++)
 		{
 			if (_strcmp(tokens[0], commands[y].opcode) == 0)
 			{
 				commands[y].f(&copy, x);
 				break;
 			}
-			else if (y != 1)
+			else if (y != 2)
 			{
 				continue;
 			}

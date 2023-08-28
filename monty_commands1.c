@@ -31,3 +31,29 @@ void token_check(char **tokens, int x)
 		}
 	}
 }
+
+/**
+  * pint_command - pint command
+  * @head: head
+  * @line_number: line number
+  */
+void pint_command(stack_t **head, unsigned int line_number)
+{
+	stack_t *node = *head;
+	int x;
+	char **tokens;
+
+	tokens = tokenize_string(_strdup(for_instructions[line_number]));
+	for (x = 0; tokens[x]; x++)
+	{
+		;
+	}
+	if (x == 1)
+	{
+		while (node->next)
+		{
+			node = node->next;
+		}
+		printf("%d\n", node->n);
+	}
+}

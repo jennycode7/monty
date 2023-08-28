@@ -61,4 +61,7 @@ void pall_command(stack_t **head, unsigned int line_number);
 void freer_list(stack_t *head);
 void free_arr(char **instructions);
 void token_check(char **tokens, int x);
+
+/* monty_commands1.c */
+void pint_command(stack_t **head, unsigned int line_number);
 #endif
