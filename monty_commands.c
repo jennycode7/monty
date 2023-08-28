@@ -44,7 +44,7 @@ void pull_command(stack_t **head, unsigned int line_number)
  */
 void pall_command(stack_t **head, unsigned int line_number)
 {
-	stack_t *node = *head;
+	stack_t *node;
 	int x;
 	char **tokens;
 
@@ -54,12 +54,16 @@ void pall_command(stack_t **head, unsigned int line_number)
 		;
 	}
 
-	if (x == 1)
+	if (*head != NULL)
 	{
-		while (node)
+		node = *head;
+		if (x == 1)
 		{
-			printf("%d\n", node->n);
-			node = node->next;
+			while (node)
+			{
+				printf("%d\n", node->n);
+				node = node->next;
+			}
 		}
 	}
 }

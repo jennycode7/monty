@@ -61,3 +61,36 @@ void pint_command(stack_t **head, unsigned int line_number)
 		printf("%d\n", node->n);
 	}
 }
+
+/**
+  * pop_command - pop command
+  * @head: head
+  * @line_number: line number
+  */
+void pop_command(stack_t **head, unsigned int line_number)
+{
+	stack_t *node;
+	int x;
+	char **tokens;
+
+	tokens = tokenize_string(_strdup(for_instructions[line_number]));
+	for (x = 0; tokens[x]; x++)
+	{
+		;
+	}
+
+	if (*head == NULL)
+	{
+		printf("L%d: can't pop an stack empty\n", line_number + 1);
+		exit(EXIT_FAILURE);
+	}
+
+	node = *head;
+
+	*head = (*head)->next;
+	if (*head != NULL)
+	{
+		(*head)->prev = NULL;
+	}
+	free(node);
+}
