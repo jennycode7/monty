@@ -39,7 +39,7 @@ void token_check(char **tokens, int x)
   */
 void pint_command(stack_t **head, unsigned int line_number)
 {
-	stack_t *node = *head;
+	stack_t *node;
 	int x;
 	char **tokens;
 
@@ -48,6 +48,14 @@ void pint_command(stack_t **head, unsigned int line_number)
 	{
 		;
 	}
+
+	if (*head == NULL)
+	{
+		printf("L%d: can't pint, stack empty\n", line_number + 1);
+		exit(EXIT_FAILURE);
+	}
+
+	node = *head;
 	if (x == 1)
 	{
 		printf("%d\n", node->n);
