@@ -50,10 +50,6 @@ void pint_command(stack_t **head, unsigned int line_number)
 	}
 	if (x == 1)
 	{
-		while (node->next)
-		{
-			node = node->next;
-		}
 		printf("%d\n", node->n);
 	}
 }
